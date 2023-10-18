@@ -12,6 +12,6 @@ weather = daily['weathercode']
 temp_min = daily['temperature_2m_min']
 temp_max = daily['temperature_2m_max']
 
-
+print(time,weather,temp_min,temp_max)
 
 # %%
