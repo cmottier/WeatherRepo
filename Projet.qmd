@@ -1,0 +1,89 @@
+---
+title: "Prévisions météo à Montpellier"
+format: 
+  html: 
+    code-fold: true
+jupyter: python3
+output:
+  html_document: 
+    highlight: kate
+  pdf_document: 
+    highlight: kate
+---
+
+
+```{python}
+
+import datetime
+import locale
+import requests
+import json
+import numpy as np
+import pandas as pd
+from IPython.display import display, Markdown
+
+# Récupération des données de météo pour les n prochains jours
+
+def data(n):
+    debut = datetime.date.today()
+    fin = debut + datetime.timedelta(days = n-1)
+    debut = debut.isoformat()
+    fin = fin.isoformat()
+    url = "https://api.open-meteo.com/v1/meteofrance?latitude=43.6109&longitude=3.8763&hourly=windspeed_10m&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum,windspeed_10m_max&timezone=Europe%2FBerlin&start_date=" + debut + "&end_date=" + fin
+    reponse = requests.get(url)
+    return reponse.json()
+
+n = 5
+data = data(n)
+
+locale.setlocale(locale.LC_TIME,'')
+Date = pd.to_datetime(data['daily']['time'])
+Date =[datetime.datetime.strftime(a,'%A %d/%m') for a in Date]
+
+weather = data['daily']['weathercode']
+
+temp_min = data['daily']['temperature_2m_min']
+temp_max = data['daily']['temperature_2m_max']
+
+precip = data['daily']['precipitation_sum']
+
+# Calcul du vent moyen à 10m pour les n prochains jours
+
+wind = data['hourly']['windspeed_10m']
+
+def wind_av(n):
+    wind_av = []
+    for i in range(n):
+        w=np.array(wind[24*i:24*(i+1)])
+        wind_av += [int(w[w!=None].mean())]
+    return wind_av
+
+wind = wind_av(n)
+
+# Correspondances codes météo - images
+
+with open("/home/cmottier/SSD/HAX712X/WeatherRepo/Correspondances.json", "r") as C:
+    image = json.load(C)
+
+#Construction tableau
+
+D = "|".join(Date)
+P = " mm|".join([str(precip[i]).replace("None","-") for i in range(n)]) 
+Wi = " km/h|".join(str(i) for i in wind) + " km/h"
+
+W = ""
+for i in weather :
+    W += "![](" + image[str(i)]['image'] + ")|"
+
+Sep = "|"
+T = "|"
+for i in range(n):
+    Sep += f":---:|"
+    T += f"{temp_min[i]}°C - {temp_max[i]}°C|"
+                                     
+T=(D+"\n"+Sep+"\n"+W+"\n"+T+"\n"+Wi+"\n"+P)
+
+display(Markdown(T))
+
+```
+
