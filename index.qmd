@@ -2,7 +2,7 @@
 title: "Prévisions météo à Montpellier"
 format: 
   html: 
-    code-fold: false
+    code-fold: true
     theme: cosmo
     backgroundcolor: rgb(178,235,242)
 jupyter: python3
