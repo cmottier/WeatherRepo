@@ -2,7 +2,7 @@
 title: "Prévisions météo à Montpellier"
 format: 
   html: 
-    code-fold: true
+    code-fold: false
     theme: cosmo
     backgroundcolor: rgb(178,235,242)
 jupyter: python3
@@ -50,7 +50,7 @@ wind = data['hourly']['windspeed_10m']
 def wind_av(n):
     wind_av = []
     for i in range(n):
-        w=np.array(wind[24*i:24*(i+1)])
+        w = np.array(wind[24*i:24*(i+1)])
         wind_av += [int(w[w!=None].mean())]
     return wind_av
 
@@ -58,7 +58,7 @@ wind = wind_av(n)
 
 # Correspondances codes météo - images
 
-with open("/home/cmottier/SSD/HAX712X/WeatherRepo/Correspondances.json", "r") as C:
+with open("Correspondances.json", "r") as C:
     image = json.load(C)
 
 #Construction tableau
