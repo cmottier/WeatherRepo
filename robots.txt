@@ -1,0 +1,1 @@
+Sitemap: https://cmottier.github.io/WeatherRepo/sitemap.xml
