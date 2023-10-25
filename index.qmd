@@ -83,3 +83,6 @@ display(Markdown(T))
 
 ```
 
+```{python}
+print(datetime.datetime.now())
+```
