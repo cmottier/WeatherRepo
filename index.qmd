@@ -26,7 +26,7 @@ def data(n):
 n = 5
 data = data(n)
 
-locale.setlocale(locale.LC_TIME,'fr_FR.UTF-8')
+locale.setlocale(locale.LC_TIME,'french')
 Date = pd.to_datetime(data['daily']['time'])
 Date =[datetime.datetime.strftime(a,'%A %d/%m') for a in Date]
 
