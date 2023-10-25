@@ -4,7 +4,7 @@ title: "Prévisions météo à Montpellier"
 
 ```{python}
 
-import datetime
+import datetime as dt
 import locale
 import requests
 import json
@@ -15,8 +15,8 @@ from IPython.display import display, Markdown
 # Récupération des données de météo pour les n prochains jours
 
 def data(n):
-    debut = datetime.date.today()
-    fin = debut + datetime.timedelta(days = n-1)
+    debut = dt.date.today()
+    fin = debut + dt.timedelta(days = n-1)
     debut = debut.isoformat()
     fin = fin.isoformat()
     url = "https://api.open-meteo.com/v1/meteofrance?latitude=43.6109&longitude=3.8763&hourly=windspeed_10m&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum,windspeed_10m_max&timezone=Europe%2FBerlin&start_date=" + debut + "&end_date=" + fin
@@ -26,9 +26,10 @@ def data(n):
 n = 5
 data = data(n)
 
-locale.setlocale(locale.LC_TIME,'french')
+# locale.setlocale(locale.LC_TIME,'fr_FR.UTF-8') : génère un bug sur github 
+
 Date = pd.to_datetime(data['daily']['time'])
-Date =[datetime.datetime.strftime(a,'%A %d/%m') for a in Date]
+Date =[dt.datetime.strftime(a,'%A %d/%m') for a in Date]
 
 weather = data['daily']['weathercode']
 
@@ -78,5 +79,5 @@ display(Markdown(T))
 ```
 
 ```{python}
-print("Dernière mise à jour : ",datetime.datetime.today().strftime('%d-%m-%Y %H:%M:%S'))
+print("Dernière mise à jour : ",dt.datetime.today().strftime('%d-%m-%Y %H:%M:%S'))
 ```
