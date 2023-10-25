@@ -1,11 +1,5 @@
 ---
 title: "Prévisions météo à Montpellier"
-format: 
-  html: 
-    code-fold: true
-    theme: cosmo
-    backgroundcolor: rgb(178,235,242)
-jupyter: python3
 ---
 
 ```{python}
@@ -32,7 +26,7 @@ def data(n):
 n = 5
 data = data(n)
 
-locale.setlocale(locale.LC_TIME,'')
+locale.setlocale(locale.LC_TIME,'fr_FR.UTF-8')
 Date = pd.to_datetime(data['daily']['time'])
 Date =[datetime.datetime.strftime(a,'%A %d/%m') for a in Date]
 
@@ -69,7 +63,7 @@ Wi = " km/h|".join(str(i) for i in wind) + " km/h"
 
 W = ""
 for i in weather :
-    W += "![](" + image[str(i)]['image'] + ")|"
+    W += f"![{image[str(i)]['description']}]({image[str(i)]['image']})|"
 
 Sep = "|"
 T = "|"
@@ -84,5 +78,5 @@ display(Markdown(T))
 ```
 
 ```{python}
-print(datetime.datetime.now())
+print("Dernière mise à jour : ",datetime.datetime.today().strftime('%d-%m-%Y %H:%M:%S'))
 ```

@@ -9,6 +9,7 @@ website:
 
 execute: 
   freeze: auto
+  echo: false
 
 format: 
   html: 
