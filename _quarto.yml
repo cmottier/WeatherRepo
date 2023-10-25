@@ -4,6 +4,7 @@ project:
     - index.qmd
 website: 
   title: "Prévisions météo à Montpellier"
+  site-url: https://cmottier.github.io/WeatherRepo/
   repo-url: https://github.com/cmottier/WeatherRepo
 
 execute: 
