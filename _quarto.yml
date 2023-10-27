@@ -8,7 +8,6 @@ website:
   repo-url: https://github.com/cmottier/WeatherRepo
 
 execute: 
-  freeze: auto
   echo: false
 
 format: 

@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron: "0 5-7 * * *" # 5am, 7am every day
+    - cron: "15 * * * *" 
   workflow_dispatch:
   push:
     branches: ["main"]
