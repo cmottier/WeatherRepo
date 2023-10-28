@@ -33,11 +33,11 @@ data = data(n)
 
 # Mise en forme des dates :
 
-# locale.setlocale(locale.LC_TIME,'fr_FR.UTF-8') : génère un bug sur github
+# locale.setlocale(locale.LC_TIME,'fr_FR.UTF-8') : fonctionne en local mais génère un bug lors du déploiement sur github
 Date = pd.to_datetime(data['daily']['time'])
 Date =[dt.datetime.strftime(a, '%A %d/%m') for a in Date]
 
-# Extraction des températures, précipitations, code météo :
+# Extraction des données de températures, précipitations, codes météo :
 
 temp_min = data['daily']['temperature_2m_min']
 temp_max = data['daily']['temperature_2m_max']
@@ -52,20 +52,20 @@ def wind_av(n):
     wind_av = []
     for i in range(n):
         w = np.array(wind[24 * i : 24 * (i + 1)])
-        wind_av += [int(w[w != None].mean())]
+        wind_av += [int(w[w != None].mean())]   # Moyenne avec omission des valeurs manquantes
     return wind_av
 
 wind = wind_av(n)
 
-# Correspondances codes météo - images :
+# Ouverture du fichier des correspondances codes météo - images :
 
 with open("Correspondances.json", "r") as C:
     image = json.load(C)
 
-# Construction tableau : 
+# Construction du tableau Markdown (génération de la chaîne de caractères) : 
 
 D = "|".join(Date)
-P = " mm|".join([str(precip[i]).replace("None", "-") for i in range(n)])
+P = " mm|".join([str(precip[i]).replace("None", "-") for i in range(n)])   # Affichage d'un tiret pour les valeurs manquantes
 Wi = " km/h|".join(str(i) for i in wind) + " km/h"
 
 W = ""
@@ -80,7 +80,7 @@ for i in range(n):
 
 T = D + "\n" + Sep + "\n" + W + "\n" + T + "\n" + Wi + "\n" + P
 
-# Tableau Markdown :
+# Affichage du tableau Markdown :
 
 display(Markdown(T))
 
@@ -89,3 +89,16 @@ display(Markdown(T))
 ```{python}
 print("Dernière mise à jour : ", dt.datetime.today().strftime('%d-%m-%Y %H:%M:%S'))
 ```
+
+---
+
+### Origine et traitement des données 
+
+Les données, téléchargées quotidiennement à partir de [**open-meteo.com**](https://open-meteo.com/en/docs/meteofrance-api), sont pour chaque jour :
+
++ Codes météo, convertis en icônes pour plus de lisibilité
++ Températures minimales et maximales
++ Vent prévu à 10m heure par heure, à partir duquel est calculé le vent moyen
++ Précipitations
+
+Plus d'informations sur le [**Readme du projet**](https://github.com/cmottier/WeatherRepo#readme)

@@ -102,40 +102,40 @@ ul.task-list li input[type="checkbox"] {
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: center;">Friday 27/10</th>
 <th style="text-align: center;">Saturday 28/10</th>
 <th style="text-align: center;">Sunday 29/10</th>
 <th style="text-align: center;">Monday 30/10</th>
 <th style="text-align: center;">Tuesday 31/10</th>
+<th style="text-align: center;">Wednesday 01/11</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><img src="http://openweathermap.org/img/wn/09d@2x.png" class="img-fluid" alt="Light Drizzle"></td>
 <td style="text-align: center;"><img src="http://openweathermap.org/img/wn/03d@2x.png" class="img-fluid" alt="Cloudy"></td>
 <td style="text-align: center;"><img src="http://openweathermap.org/img/wn/09d@2x.png" class="img-fluid" alt="Light Drizzle"></td>
-<td style="text-align: center;"><img src="http://openweathermap.org/img/wn/09d@2x.png" class="img-fluid" alt="Showers"></td>
-<td style="text-align: center;"><img src="http://openweathermap.org/img/wn/10d@2x.png" class="img-fluid" alt="Light Rain"></td>
+<td style="text-align: center;"><img src="http://openweathermap.org/img/wn/09d@2x.png" class="img-fluid" alt="Heavy Drizzle"></td>
+<td style="text-align: center;"><img src="http://openweathermap.org/img/wn/09d@2x.png" class="img-fluid" alt="Heavy Drizzle"></td>
+<td style="text-align: center;"><img src="http://openweathermap.org/img/wn/02d@2x.png" class="img-fluid" alt="Partly Cloudy"></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">14.3°C - 20.8°C</td>
-<td style="text-align: center;">10.8°C - 20.0°C</td>
-<td style="text-align: center;">12.8°C - 20.7°C</td>
-<td style="text-align: center;">16.0°C - 20.0°C</td>
-<td style="text-align: center;">12.6°C - 15.9°C</td>
+<td style="text-align: center;">9.2°C - 20.7°C</td>
+<td style="text-align: center;">13.9°C - 21.6°C</td>
+<td style="text-align: center;">15.5°C - 19.8°C</td>
+<td style="text-align: center;">11.1°C - 18.2°C</td>
+<td style="text-align: center;">8.9°C - 13.2°C</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">14 km/h</td>
-<td style="text-align: center;">9 km/h</td>
-<td style="text-align: center;">20 km/h</td>
-<td style="text-align: center;">25 km/h</td>
+<td style="text-align: center;">7 km/h</td>
+<td style="text-align: center;">16 km/h</td>
+<td style="text-align: center;">27 km/h</td>
 <td style="text-align: center;">12 km/h</td>
+<td style="text-align: center;">13 km/h</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">0.1 mm</td>
 <td style="text-align: center;">0.0 mm</td>
-<td style="text-align: center;">0.2 mm</td>
-<td style="text-align: center;">14.3 mm</td>
+<td style="text-align: center;">0.3 mm</td>
+<td style="text-align: center;">4.5 mm</td>
+<td style="text-align: center;">2.9 mm</td>
 <td style="text-align: center;">-</td>
 </tr>
 </tbody>
@@ -144,11 +144,23 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
-<pre><code>Dernière mise à jour :  27-10-2023 12:32:25</code></pre>
+<pre><code>Dernière mise à jour :  28-10-2023 17:51:47</code></pre>
 </div>
 </div>
+<hr>
+<section id="origine-et-traitement-des-données" class="level3">
+<h3 class="anchored" data-anchor-id="origine-et-traitement-des-données">Origine et traitement des données</h3>
+<p>Les données, téléchargées quotidiennement à partir de <a href="https://open-meteo.com/en/docs/meteofrance-api"><strong>open-meteo.com</strong></a>, sont pour chaque jour :</p>
+<ul>
+<li>Codes météo, convertis en icônes pour plus de lisibilité</li>
+<li>Températures minimales et maximales</li>
+<li>Vent prévu à 10m heure par heure, à partir duquel est calculé le vent moyen</li>
+<li>Précipitations</li>
+</ul>
+<p>Plus d’informations sur le <a href="https://github.com/cmottier/WeatherRepo#readme"><strong>Readme du projet</strong></a></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
