@@ -4,6 +4,6 @@
     "href": "index.html",
     "title": "Prévisions météo à Montpellier",
     "section": "",
-    "text": "Saturday 28/10\nSunday 29/10\nMonday 30/10\nTuesday 31/10\nWednesday 01/11\n\n\n\n\n\n\n\n\n\n\n\n9.2°C - 19.1°C\n13.2°C - 21.4°C\n15.5°C - 19.4°C\n11.1°C - 18.2°C\n8.9°C - 13.2°C\n\n\n7 km/h\n17 km/h\n27 km/h\n12 km/h\n13 km/h\n\n\n0.0 mm\n0.3 mm\n4.5 mm\n2.9 mm\n-\n\n\n\n\n\n\n\nDernière mise à jour :  28-10-2023 17:35:19\n\n\n\n\nOrigine et traitement des données\nLes données, téléchargées quotidiennement à partir de open-meteo.com, sont :\n\nCodes météo de chaque jour, convertis en icônes pour plus de lisibilité\nTempératures minimales et maximales de chaque jour\nVent prévu à 10m heure par heure, à partir duquel est calculé le vent moyen de chaque jour\nPrécipitations de chaque jour\n\nPlus d’informations sur le Readme du projet"
+    "text": "Saturday 28/10\nSunday 29/10\nMonday 30/10\nTuesday 31/10\nWednesday 01/11\n\n\n\n\n\n\n\n\n\n\n\n9.2°C - 19.1°C\n13.2°C - 21.4°C\n15.5°C - 19.4°C\n11.1°C - 18.2°C\n8.9°C - 13.2°C\n\n\n7 km/h\n17 km/h\n27 km/h\n12 km/h\n13 km/h\n\n\n0.0 mm\n0.3 mm\n4.5 mm\n2.9 mm\n-\n\n\n\n\n\n\n\nDernière mise à jour :  28-10-2023 17:50:12\n\n\n\n\nOrigine et traitement des données\nLes données pour chaque jour, téléchargées quotidiennement à partir de open-meteo.com, sont :\n\nCodes météo, convertis en icônes pour plus de lisibilité\nTempératures minimales et maximales\nVent prévu à 10m heure par heure, à partir duquel est calculé le vent moyen\nPrécipitations\n\nPlus d’informations sur le Readme du projet"
   }
 ]
