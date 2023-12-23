@@ -1,6 +1,6 @@
 on:
-  schedule:
-    - cron: "0 4,5,8 * * *"  # Plannification des mises à jours quotidiennes à 4h, 5h, 8h (6h, 7h, 10h heures françaises)
+  # schedule:
+    #- cron: "0 4,5,8 * * *"  Plannification des mises à jours quotidiennes à 4h, 5h, 8h (6h, 7h, 10h heures françaises)
   workflow_dispatch:
   push:
     branches: ["main"]
